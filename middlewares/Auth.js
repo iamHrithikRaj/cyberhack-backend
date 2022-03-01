@@ -1,14 +1,13 @@
 const jwt = require("jsonwebtoken");
 const HttpRequest = require("../constants/HttpRequest");
 
-const auth = (res, req, next) => {
+module.exports = function (req, res, next) {
   const token = req.header("auth-token");
   if (!token) return res.status(HttpRequest.BAD_REQUEST).send("Access Denied");
 
-  try {
-    const verifed = jwt.verify(token, process.env.TOKEN_SECRET);
-    req.team = verifed;
-  } catch (error) {
-    return res.status(HttpRequest.BAD_REQUEST).send("Invalid Token");
-  }
+  jwt.verify(token, process.env.TOKEN_SECRET, (error, decoded) => {
+    if (error) return res.status(HttpRequest.BAD_REQUEST).send("Invalid Token");
+    req.team = decoded;
+  });
+  next();
 };
