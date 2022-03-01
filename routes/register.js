@@ -1,23 +1,21 @@
 //Imports
 const router = require("express").Router();
 const Team = require("../model/Team");
-const validate = require("../validation/validate");
+const validate = require("../validation/Validate");
 const bcrypt = require("bcryptjs");
-
-//Status Codes
-const CREATED = 201;
-const BAD_REQUEST = 400;
+const HttpRequest = require("../constants/HttpRequest");
 
 router.post("/register", async (req, res) => {
   //Validate the incoming request body
   const { error, value } = validate(req.body);
-  if (error) return res.status(BAD_REQUEST).send(error.details[0].message);
+  if (error)
+    return res.status(HttpRequest.BAD_REQUEST).send(error.details[0].message);
 
   //Check if a team with same name exists
   const teamExists = await Team.findOne({ teamName: value.teamName });
   if (teamExists)
     return res
-      .status(BAD_REQUEST)
+      .status(HttpRequest.BAD_REQUEST)
       .send(`A team with name ${value.teamName} already exists`);
 
   //Hash Password
@@ -27,14 +25,13 @@ router.post("/register", async (req, res) => {
 
   try {
     const savedTeam = await new Team(value).save();
-    return res.status(CREATED).send({
+    return res.status(HttpRequest.CREATED).send({
       id: savedTeam._id,
       teamName: savedTeam.teamName,
     });
   } catch (error) {
-    return res.status(BAD_REQUEST).send(error);
+    return res.status(HttpRequest.BAD_REQUEST).send(error);
   }
 });
-
 
 module.exports = router;

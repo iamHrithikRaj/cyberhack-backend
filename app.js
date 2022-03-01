@@ -5,8 +5,9 @@ const dotenv = require("dotenv")
 const mongoose = require("mongoose");
 
 //Import Routes
-const registerRoute = require("./routes/register");
-const loginRoute = require("./routes/login");
+const registerRoute = require("./routes/Register");
+const loginRoute = require("./routes/Login");
+const submit = require("./routes/Submit");
 
 
 dotenv.config();
@@ -22,7 +23,7 @@ app.use(express.json())
 
 
 //Routes Middleware 
-app.use("/api/v1/team", [registerRoute, loginRoute]);
+app.use("/api/v1/team", [registerRoute, loginRoute, submit]);
 
 const PORT = process.env.PORT | 8080;
 app.listen(PORT, () => console.log(`Server running at http://127.0.0.1:${PORT}`));
