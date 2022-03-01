@@ -1,0 +1,32 @@
+{
+  "name": "cyberhack-backend",
+  "version": "1.0.0",
+  "description": "CyberHack is an one of a kind event in Amity's AYF'22",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iamHrithikRaj/cyberhack-backend.git"
+  },
+  "author": "Hrithik Raj",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iamHrithikRaj/cyberhack-backend/issues"
+  },
+  "homepage": "https://github.com/iamHrithikRaj/cyberhack-backend#readme",
+  "dependencies": {
+    "@sideway/address": "^4.1.3",
+    "@sideway/formula": "^3.0.0",
+    "@sideway/pinpoint": "^2.0.0",
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "joi": "^17.6.0",
+    "mongoose": "^6.2.4"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
