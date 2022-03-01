@@ -5,9 +5,11 @@ module.exports = function (req, res, next) {
   const token = req.header("auth-token");
   if (!token) return res.status(HttpRequest.BAD_REQUEST).send("Access Denied");
 
-  jwt.verify(token, process.env.TOKEN_SECRET, (error, decoded) => {
-    if (error) return res.status(HttpRequest.BAD_REQUEST).send("Invalid Token");
+  try {
+    const decoded = jwt.verify(token, process.env.TOKEN_SECRET);
     req.team = decoded;
-  });
-  next();
+    next();
+  } catch (error) {
+    return res.status(HttpRequest.BAD_REQUEST).send("Invalid Token");
+  }
 };
