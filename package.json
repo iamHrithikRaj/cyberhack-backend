@@ -2,9 +2,9 @@
   "name": "cyberhack-backend",
   "version": "1.0.0",
   "description": "CyberHack is an one of a kind event in Amity's AYF'22",
-  "main": "App.js",
+  "main": "app.js",
   "scripts": {
-    "start": "node App.js"
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
@@ -30,9 +30,5 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.15"
-  },
-  "engines": {
-    "node": "14.x",
-    "npm": "6.x"
   }
 }
