@@ -7,10 +7,10 @@ const cors = require('cors')
 
 
 //Import Routes
-const register = require("./routes/Register");
-const login = require("./routes/Login");
-const submit = require("./routes/Submit");
-const rank = require("./routes/Rank");
+const register = require("./routes/register");
+const login = require("./routes/login");
+const submit = require("./routes/submit");
+const rank = require("./routes/rank");
 
 
 dotenv.config();
