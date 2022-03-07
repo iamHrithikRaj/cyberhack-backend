@@ -35,5 +35,5 @@ app.use(cors(corsOptions))
 //Routes Middleware 
 app.use("/api/v1/team", [register, login, submit, rank]);
 
-const PORT = process.env.PORT | 8080;
+const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => console.log(`Server running at http://127.0.0.1:${PORT}`));
