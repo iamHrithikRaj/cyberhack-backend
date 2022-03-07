@@ -4,18 +4,19 @@ const HttpStatus = require("../constants/HttpStatus");
 const auth = require("../middlewares/Auth");
 const Team = require("../model/Team");
 
-router.post("/submit", auth, async (req, res) => {
-  // TODO: Implement answer checking and point incrementing logic
-  let points = req.body.points;
+router.get("/rank", auth, async (req, res) => {
   let id = req.team._id;
   const team = await Team.findById(id);
   if (!team)
     return res
       .status(HttpStatus.BAD_REQUEST)
       .send(`A team with name ${value.teamName} doesn't exists`);
-  team.score += points;
-  const updateTeam = await team.save();
-  return res.status(HttpStatus.OK).send({score : updateTeam.score});
+  const teams = await Team.find().sort({ score: -1 });
+  const rank = teams.findIndex((t) => t._id == id);
+  return res.status(HttpStatus.OK).send({
+    _id: team._id,
+    rank: rank+1,
+  });
 });
 
 module.exports = router;
