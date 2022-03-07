@@ -4,7 +4,7 @@
   "description": "CyberHack is an one of a kind event in Amity's AYF'22",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon app.js"
+    "start": "node App.js"
   },
   "repository": {
     "type": "git",
@@ -30,5 +30,8 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.15"
+  },
+  "engines": {
+    "node": "14.x"
   }
 }
