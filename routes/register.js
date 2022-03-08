@@ -1,6 +1,6 @@
 //Imports
 const router = require("express").Router();
-const Team = require("../model/team");
+const Team = require("../model/Team");
 const validate = require("../validation/validate");
 const bcrypt = require("bcryptjs");
 const http_status = require("../constants/http_status");

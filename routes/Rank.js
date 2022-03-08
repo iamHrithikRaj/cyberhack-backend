@@ -1,8 +1,8 @@
 //Imports
 const router = require("express").Router();
 const http_status = require("../constants/http_status");
-const auth = require("../middlewares/auth");
-const Team = require("../model/team");
+const auth = require("../middlewares/Auth");
+const Team = require("../model/Team");
 
 router.get("/rank", auth, async (req, res) => {
   let id = req.team._id;
