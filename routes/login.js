@@ -24,7 +24,7 @@ router.post("/login", async (req, res) => {
     return res.status(http_status.BAD_REQUEST).send(`Incorrect password`);
 
   //Create and assing a token
-  const token = jwt.sign({ _id: team._id }, process.env.TOKEN_SECRET);
+  const token = jwt.sign({ _id: team._id }, ',.>xHj1U#n"_^U[');
   return res.header("auth-token", token).send(token);
 });
 

@@ -17,7 +17,7 @@ dotenv.config({path : "./.env"});
 
 // Connect to DB
 mongoose.connect(
-  process.env.DB_CONNECT, { useNewUrlParser: true });
+  "mongodb+srv://cyberhack-db:cyberhackamity2022@cluster0.wo9hq.mongodb.net/CyberHack?retryWrites=true&w=majority", { useNewUrlParser: true });
 
 // CORS Configuration
 const corsOptions = {
