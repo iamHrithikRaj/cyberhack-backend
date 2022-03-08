@@ -13,7 +13,7 @@ const submit = require("./routes/Submit");
 const rank = require("./routes/Rank");
 
 
-dotenv.config();
+dotenv.config({path : "./.env"});
 
 // Connect to DB
 mongoose.connect(
