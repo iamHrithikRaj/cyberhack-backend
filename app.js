@@ -17,9 +17,7 @@ dotenv.config({path : "./.env"});
 
 // Connect to DB
 mongoose.connect(
-  process.env.DB_CONNECT,
-  () => console.log("Connection to DB successful")
-);
+  process.env.DB_CONNECT, { useNewUrlParser: true });
 
 // CORS Configuration
 const corsOptions = {
