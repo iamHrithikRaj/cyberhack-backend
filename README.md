@@ -17,7 +17,7 @@ curl -X POST https://pure-brook-94362.herokuapp.com/api/v1/team/login
 
 
 
-###  Increment Team's Rank
+###  Increment Team's Score
 
 ```bash
 curl -X POST https://pure-brook-94362.herokuapp.com/api/v1/team/submit
@@ -33,7 +33,7 @@ curl -X POST https://pure-brook-94362.herokuapp.com/api/v1/team/submit
 
 
 
-### Get Team's Score
+### Get Team's Rank
 
 ```bash
 curl -X GET https://pure-brook-94362.herokuapp.com/api/v1/team/rank
