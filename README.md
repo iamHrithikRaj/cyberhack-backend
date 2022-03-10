@@ -17,7 +17,7 @@ curl -X POST https://pure-brook-94362.herokuapp.com/api/v1/team/login
 
 
 
-###  Increment Team's Score
+###  Increment Team's Rank
 
 ```bash
 curl -X POST https://pure-brook-94362.herokuapp.com/api/v1/team/submit
