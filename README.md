@@ -17,7 +17,7 @@ curl -X POST https://pure-brook-94362.herokuapp.com/api/v1/team/login
 
 
 
-###  Increment Team's Score
+###  Check Team's Answer
 
 ```bash
 curl -X POST https://pure-brook-94362.herokuapp.com/api/v1/team/submit
@@ -25,7 +25,8 @@ curl -X POST https://pure-brook-94362.herokuapp.com/api/v1/team/submit
 
 ```json
 {
-    "points": 110
+    "id" : "622eabe38e68ab04e561f633",
+    "answer": "answer2"
 }
 ```
 
@@ -38,4 +39,3 @@ curl -X POST https://pure-brook-94362.herokuapp.com/api/v1/team/submit
 ```bash
 curl -X GET https://pure-brook-94362.herokuapp.com/api/v1/team/rank
 ```
-

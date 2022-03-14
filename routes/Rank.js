@@ -12,7 +12,7 @@ router.get("/rank", auth, async (req, res) => {
       .status(http_status.BAD_REQUEST)
       .send(`A team with name ${value.teamName} doesn't exists`);
   const teams = await Team.find().sort({ score: -1 });
-  const rank = teams.findIndex((t) => t.teamName == team.teamName);
+  const rank = teams.findIndex((t) => t._id.equals(team._id));
   return res.status(http_status.OK).send({
     _id: team._id,
     rank: rank + 1,
