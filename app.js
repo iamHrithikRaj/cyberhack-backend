@@ -4,13 +4,13 @@ const app = express();
 const dotenv = require("dotenv");
 const mongoose = require("mongoose");
 const cors = require("cors");
-const swaggerUi = require("swaggerUi");
 
 //Import Routes
 const register = require("./routes/register");
 const login = require("./routes/login");
 const submit = require("./routes/Submit");
 const rank = require("./routes/Rank");
+const add_question = require("./routes/addQuestion");
 
 dotenv.config({ path: "./.env" });
 
@@ -32,17 +32,8 @@ app.use(cors(corsOptions));
 
 //Routes Middleware
 app.use("/api/v1/team", [register, login, submit, rank]);
+app.use("/api/v1/", [add_question]);
 
-// OpenAPI UI
-app.use(
-  "/api-documentation",
-  swaggerUi.serve,
-  swaggerUi.setup(null, {
-    swaggerOptions: {
-      url: "http://localhost:3030/api-docs",
-    },
-  })
-);
 
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () =>

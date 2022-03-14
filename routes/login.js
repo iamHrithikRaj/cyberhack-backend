@@ -1,7 +1,7 @@
 //Imports
 const router = require("express").Router();
 const Team = require("../model/Team");
-const validate = require("../validation/validate");
+const validate = require("../validation/validateUser");
 const bcrypt = require("bcryptjs");
 const http_status = require("../constants/http_status");
 const jwt = require("jsonwebtoken");

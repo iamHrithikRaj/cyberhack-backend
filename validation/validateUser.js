@@ -1,7 +1,7 @@
 //Imports
 const Joi = require("joi");
 
-const validate = (data) => {
+const validateUser = (data) => {
   const validationSchema = Joi.object({
     teamName: Joi.string().min(6).required(),
     password: Joi.string().min(6).required(),
@@ -9,5 +9,5 @@ const validate = (data) => {
   return validationSchema.validate(data)
 };
 
-module.exports = validate;
+module.exports = validateUser;
  
