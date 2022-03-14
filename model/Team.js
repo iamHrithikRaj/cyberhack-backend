@@ -1,5 +1,17 @@
 const mongoose = require("mongoose");
 
+const listOfSolvedQuestionsSchema = new mongoose.Schema({
+  question_id: {
+      type: String,
+      required: true
+  },
+  timestamp : {
+      type: Date,
+      required: false,
+      default: Date.now
+  }
+})
+
 const teamSchema = new mongoose.Schema({
   teamName: {
     type: String,
@@ -13,7 +25,7 @@ const teamSchema = new mongoose.Schema({
     max: 1024,
     min: 6,
   },
-  score: {
+  totalScore: {
     type: Number,
     required: false,
     default: 0,
@@ -22,6 +34,9 @@ const teamSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
+  listOfSolvedQuestions:[
+    listOfSolvedQuestionsSchema
+  ]
 });
 
 module.exports = mongoose.model("Team", teamSchema);

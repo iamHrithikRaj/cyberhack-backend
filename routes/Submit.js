@@ -4,6 +4,7 @@ const http_status = require("../constants/http_status");
 const auth = require("../middlewares/Auth");
 const Team = require("../model/Team");
 const Question = require("../model/question");
+const { boolean } = require("joi");
 
 router.post("/submit", auth, async (req, res) => {
   // TODO: Implement answer checking and point incrementing logic
@@ -20,18 +21,23 @@ router.post("/submit", auth, async (req, res) => {
     return res
       .status(http_status.BAD_REQUEST)
       .send(`A question with id ${question_id} doesn't exists`);
-  if(answer == question.answer){
-    if(question.solved === false){
-      team.score += question.maxScore;
-      question.solved = true;
+  if (answer == question.answer) {
+    let solved = team.listOfSolvedQuestions.some(function (ques) {
+      return ques.question_id === question_id;
+    });
+    if (solved === false) {
+      team.totalScore += question.maxScore;
+      team.listOfSolvedQuestions.push({
+        question_id,
+      });
       const updatedTeam = await team.save();
-      const updatedQuestion = await question.save();
-      return res.status(http_status.OK).send({ score: updatedTeam.score });
-    }else{
-      return res.status(http_status.OK).send({ error: "Question already solved" });
+      return res.status(http_status.OK).send({ score: updatedTeam.totalScore });
+    } else {
+      return res
+        .status(http_status.OK)
+        .send({ error: "Question already solved" });
     }
-  }else
-    return res.status(http_status.OK).send({ error: "Incorrect Answer" });
+  } else return res.status(http_status.OK).send({ error: "Incorrect Answer" });
 });
 
 module.exports = router;

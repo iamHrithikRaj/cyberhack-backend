@@ -1,3 +1,4 @@
+const { required } = require("joi");
 const mongoose = require("mongoose");
 
 const questionSchema = new mongoose.Schema({
@@ -13,12 +14,8 @@ const questionSchema = new mongoose.Schema({
     type: Number,
     required: true,
     default: 0,
-  },
-  solved:{
-      type: Boolean,
-      required: false,
-      default: false
   }
+ 
 });
 
 module.exports = mongoose.model("Question", questionSchema);
