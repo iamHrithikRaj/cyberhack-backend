@@ -25,8 +25,9 @@ curl -X POST https://pure-brook-94362.herokuapp.com/api/v1/team/submit
 
 ```json
 {
-    "id" : "622eabe38e68ab04e561f633",
-    "answer": "answer2"
+    "id" : "623090a2e8e04a0cf99e7abd",
+    "answer": "answer1",
+    "hintTaken": true
 }
 ```
 
