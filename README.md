@@ -32,8 +32,6 @@ curl -X POST https://pure-brook-94362.herokuapp.com/api/v1/team/submit
 
 
 
-
-
 ### Get Team's Rank
 
 ```bash

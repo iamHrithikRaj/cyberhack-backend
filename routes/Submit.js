@@ -10,6 +10,7 @@ router.post("/submit", auth, async (req, res) => {
   // TODO: Implement answer checking and point incrementing logic
   let question_id = req.body.id;
   let answer = req.body.answer;
+  let hintTaken = req.body.hintTaken;
   let id = req.team._id;
   const team = await Team.findById(id);
   if (!team)
@@ -26,7 +27,8 @@ router.post("/submit", auth, async (req, res) => {
       return ques.question_id === question_id;
     });
     if (solved === false) {
-      team.totalScore += question.maxScore;
+      
+      team.totalScore += hintTaken ? (question.maxScore/2) :  question.maxScore;
       team.listOfSolvedQuestions.push({
         question_id,
       });
