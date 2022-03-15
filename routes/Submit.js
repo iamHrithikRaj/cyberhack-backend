@@ -27,8 +27,8 @@ router.post("/submit", auth, async (req, res) => {
       return ques.question_id === question_id;
     });
     if (solved === false) {
-      
-      team.totalScore += hintTaken ? (question.maxScore/2) :  question.maxScore;
+      team.totalScore +=
+        hintTaken === true ? question.maxScore / 2 : question.maxScore;
       team.listOfSolvedQuestions.push({
         question_id,
       });

@@ -25,7 +25,7 @@ router.post("/login", async (req, res) => {
 
   //Create and assing a token
   const token = jwt.sign({ _id: team._id }, ',.>xHj1U#n"_^U[');
-  return res.header("auth-token", token).send(token);
+  return res.header("auth-token", token).send({ message: "Login Successful" });
 });
 
 module.exports = router;
