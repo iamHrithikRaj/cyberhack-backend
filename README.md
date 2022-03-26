@@ -1,5 +1,3 @@
-[![Heroku CI Status](https://pure-brook-94362.herokuapp.com/last.svg)](https://dashboard.heroku.com/pipelines/1e560e96-828a-47c1-8563-dc59aadd4e47/tests)
-
 # CyberHack Backend API
 
 ### Team Login
