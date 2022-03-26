@@ -16,7 +16,7 @@ dotenv.config({ path: "./.env" });
 
 // Connect to DB
 mongoose.connect(
-  "mongodb+srv://cyberhack-db:cyberhackamity2022@cluster0.wo9hq.mongodb.net/CyberHack?retryWrites=true&w=majority",
+  "mongodb+srv://<DBNAME>:<PASSWORD>@cluster0.wo9hq.mongodb.net/CyberHack?retryWrites=true&w=majority",
   { useNewUrlParser: true }
 );
 
